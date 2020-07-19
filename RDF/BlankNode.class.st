@@ -7,6 +7,13 @@ Class {
 	#category : #RDF
 }
 
+{ #category : #'instance creation' }
+BlankNode class >> id: aString [
+	^ self new
+		id: aString;
+		yourself
+]
+
 { #category : #accessing }
 BlankNode >> id [
 	^ id

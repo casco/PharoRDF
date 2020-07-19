@@ -4,7 +4,7 @@ Extension { #name : #String }
 String >> asRDFLiteralNode [
 	^ LiteralNode
 		lexicalForm: self
-		dataTypeIri: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#langString'
+		dataTypeIri: 'http://www.w3.org/2001/XMLSchema#string'
 ]
 
 { #category : #'*RDF' }

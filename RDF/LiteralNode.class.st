@@ -34,6 +34,9 @@ LiteralNode >> language [
 
 { #category : #accessing }
 LiteralNode >> language: anObject [
+	anObject
+		ifNotNil:
+			[ dataTypeIri := 'http://www.w3.org/1999/02/22-rdf-syntax-ns#langString' ].
 	language := anObject
 ]
 

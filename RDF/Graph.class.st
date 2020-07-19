@@ -27,6 +27,11 @@ Graph >> addRdfPrefix [
 		for: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'
 ]
 
+{ #category : #factory }
+Graph >> blankNode [
+	^ BlankNode id: Time millisecondClockValue asString
+]
+
 { #category : #initialization }
 Graph >> initialize [
 	triples := OrderedCollection new.
