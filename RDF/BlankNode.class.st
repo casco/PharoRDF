@@ -16,3 +16,10 @@ BlankNode >> id [
 BlankNode >> id: anObject [
 	id := anObject
 ]
+
+{ #category : #printing }
+BlankNode >> printOn: aStream [
+	aStream
+		nextPutAll: '_:';
+		nextPutAll: (id ifNil: '?')
+]

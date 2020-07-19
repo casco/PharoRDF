@@ -7,6 +7,13 @@ Class {
 	#category : #RDF
 }
 
+{ #category : #'instance creation' }
+NamedNode class >> iri: aString [
+	^ self new
+		iri: aString;
+		yourself
+]
+
 { #category : #accessing }
 NamedNode >> iri [
 	^ iri
@@ -15,4 +22,12 @@ NamedNode >> iri [
 { #category : #accessing }
 NamedNode >> iri: anObject [
 	iri := anObject
+]
+
+{ #category : #printing }
+NamedNode >> printOn: aStream [
+	aStream
+		nextPutAll: '<';
+		nextPutAll: iri;
+		nextPutAll: '>'
 ]

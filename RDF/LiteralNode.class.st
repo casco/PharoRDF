@@ -2,21 +2,29 @@ Class {
 	#name : #LiteralNode,
 	#superclass : #Node,
 	#instVars : [
-		'value',
-		'dataType',
+		'lexicalForm',
+		'dataTypeIri',
 		'language'
 	],
 	#category : #RDF
 }
 
-{ #category : #accessing }
-LiteralNode >> dataType [
-	^ dataType
+{ #category : #'instance creation' }
+LiteralNode class >> lexicalForm: lexicalForm dataTypeIri: type [
+	^ self new
+		lexicalForm: lexicalForm;
+		dataTypeIri: type;
+		yourself
 ]
 
 { #category : #accessing }
-LiteralNode >> dataType: anObject [
-	dataType := anObject
+LiteralNode >> dataTypeIri [
+	^ dataTypeIri
+]
+
+{ #category : #accessing }
+LiteralNode >> dataTypeIri: anObject [
+	dataTypeIri := anObject
 ]
 
 { #category : #accessing }
@@ -30,11 +38,28 @@ LiteralNode >> language: anObject [
 ]
 
 { #category : #accessing }
-LiteralNode >> value [
-	^ value
+LiteralNode >> lexicalForm [
+	^ lexicalForm
 ]
 
 { #category : #accessing }
-LiteralNode >> value: anObject [
-	value := anObject
+LiteralNode >> lexicalForm: anObject [
+	lexicalForm := anObject
+]
+
+{ #category : #printing }
+LiteralNode >> printOn: aStream [
+	aStream
+		nextPutAll: '"';
+		nextPutAll: lexicalForm;
+		nextPutAll: '"'.
+	dataTypeIri
+		ifNotNil: [ aStream
+				nextPutAll: '^^<';
+				nextPutAll: dataTypeIri;
+				nextPutAll: '>' ].
+	language
+		ifNotNil: [ aStream
+				nextPutAll: '@';
+				nextPutAll: language ]
 ]
